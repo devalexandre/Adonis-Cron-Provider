@@ -1,0 +1,18 @@
+{
+  "name": "Adonis-Cron-Provider",
+  "version": "1.0.0",
+  "description": "Cron Job to Adonis",
+  "main": "index.js",
+  "repository": "https://github.com/devalexandre/Adonis-Cron-Provider.git",
+  "author": "Alexandre <alexandre@indev.net.br>",
+  "license": "MIT",
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/generic-exceptions": "^3.0.1",
+    "@adonisjs/redis": "^2.0.7",
+    "@adonisjs/sink": "^1.0.17",
+    "cron": "^1.8.2",
+    "debug": "^4.2.0"
+  }
+}
