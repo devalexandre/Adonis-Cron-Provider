@@ -1,6 +1,4 @@
 'use strict'
-const  CronJob = require('cron').CronJob;
-const Redis = require('Redis')
 const { ServiceProvider } = require('@adonisjs/fold')
 
 class CronProvider extends ServiceProvider{
@@ -14,7 +12,17 @@ class CronProvider extends ServiceProvider{
      *
      * @private
      */
-    _registerScheduler () {
-        this.app.singleton('Adonis/Addons/Cron', () => make(require('../src/CronService')))
+
+    register () {
+          this.app.singleton('Adonis/Addons/Cron', (app) => {
+            // const Config = app.use('Adonis/Src/Config')
+            const Cron = require('../src/CronService')
+            return new Cron()
+        })
+
+        this.app.alias('Adonis/Addons/Cron', 'Cron')
     }
 }
+
+
+module.exports = CronProvider

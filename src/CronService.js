@@ -20,15 +20,14 @@ class CronService {
         await Redis.delete(name)
     }
 
-    async static getTask(){
+    async static getTask(timezone = 'America/Sao_Paulo' ){
         Redis.on("message", (channel, message) => {
             const _data = JSON.parse(message)
-            const job = new CronJob(`${_data.time}`, [_data.task], null, true, 'America/Los_Angeles');
+            const job = new CronJob(`${_data.time}`, [_data.task], null, true, timezone);
             console.log("Receive message %s from channel %s", message, channel);
         });
     }
 }
 
-module.exports = {
-    CronService
-}
+module.exports = CronService
+
